@@ -75,6 +75,15 @@ class A1RoughCfg( LeggedRobotCfg ):
             torques = -0.0002
             dof_pos_limits = -10.0
 
+    class terrain( LeggedRobotCfg.terrain ):
+        mesh_type = 'trimesh'
+        terrain_proportions = [0.5, 0.5, 0., 0., 0.]
+
+        measure_heights = False
+
+    class env( LeggedRobotCfg.env ):
+        num_observations = 48
+
 class A1RoughCfgPPO( LeggedRobotCfgPPO ):
     class algorithm( LeggedRobotCfgPPO.algorithm ):
         entropy_coef = 0.01
